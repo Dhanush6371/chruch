@@ -93,7 +93,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-charcoal via-gray-800 to-charcoal overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-charcoal via-gray-800 to-charcoal overflow-hidden py-32 md:py-40">
         {/* Background Image */}
         <div
           className="absolute inset-0 hero-parallax"
@@ -136,27 +136,27 @@ export default function Home() {
         </div>
 
         {/* Content */}
-        <div className={`relative z-10 text-center px-6 max-w-5xl mx-auto transition-all duration-1500 ${fadeIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <h1 className="font-serif font-light text-5xl md:text-7xl text-white leading-tight mb-10" style={{ lineHeight: '1.3', textShadow: '0 4px 20px rgba(0,0,0,0.5), 0 0 40px rgba(212,175,55,0.1)' }}>
-            <span className="block mb-5">DEATH TO LIFE.</span>
-            <span className="block mb-5">LIFE TO FULLNESS.</span>
+        <div className={`relative z-10 text-center px-4 md:px-6 max-w-6xl mx-auto w-full transition-all duration-1500 ${fadeIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <h1 className="font-serif font-light text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-6 md:mb-10" style={{ lineHeight: '1.3', textShadow: '0 4px 20px rgba(0,0,0,0.5), 0 0 40px rgba(212,175,55,0.1)' }}>
+            <span className="block mb-3 md:mb-5">DEATH TO LIFE.</span>
+            <span className="block mb-3 md:mb-5">LIFE TO FULLNESS.</span>
             <span className="block">FULLNESS TO MISSION.</span>
           </h1>
 
-          <p className="text-white/95 text-lg max-w-2xl mx-auto mb-14 leading-relaxed font-light" style={{ lineHeight: '1.8', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
+          <p className="text-white/95 text-base sm:text-lg md:text-xl max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed font-light px-4" style={{ lineHeight: '1.8', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
             The Way is a church for anyone and everyone in Cardiff. We are shaped by Scripture, led by the Spirit, and committed to following Jesus together in everyday life — at home, at work, and across the city and the nations God has called us to.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center px-4 mb-8">
             <Link
               to="/connect"
-              className="hero-button-outline px-8 py-3 border-2 border-white text-white rounded hover:bg-gold hover:border-gold hover:text-charcoal transition-all duration-300"
+              className="hero-button-outline px-8 py-3.5 border-2 border-white text-white rounded-full hover:bg-gold hover:border-gold hover:text-charcoal transition-all duration-300 text-sm md:text-base font-medium"
             >
               Plan Your Visit
             </Link>
             <Link
               to="/connect"
-              className="hero-button-primary px-8 py-3 bg-gold text-charcoal rounded hover:bg-gold-dark transition-all duration-300 font-medium"
+              className="hero-button-primary px-8 py-3.5 bg-gold text-charcoal rounded-full hover:bg-gold-dark transition-all duration-300 font-medium text-sm md:text-base"
             >
               Connect With Us
             </Link>
@@ -431,23 +431,54 @@ export default function Home() {
 
         /* Hero Buttons */
         .hero-button-outline {
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
           transform: translateY(0);
+          backdrop-filter: blur(10px);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .hero-button-outline::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+
+        .hero-button-outline:hover::before {
+          opacity: 1;
         }
 
         .hero-button-outline:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+          transform: translateY(-3px) scale(1.02);
+          box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
         }
 
         .hero-button-primary {
-          box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+          box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
           transform: translateY(0);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .hero-button-primary::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+
+        .hero-button-primary:hover::before {
+          opacity: 1;
         }
 
         .hero-button-primary:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+          transform: translateY(-3px) scale(1.02);
+          box-shadow: 0 12px 40px rgba(212, 175, 55, 0.6);
         }
 
         /* Scroll Indicator */
